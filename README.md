@@ -29,15 +29,15 @@ GitHub Actions allows you to build your app on macOS, Windows and Linux without 
 
        steps:
          - name: Check out Git repository
-           uses: actions/checkout@v1
+           uses: actions/checkout@v3
 
          - name: Install Node.js, NPM and Yarn
-           uses: actions/setup-node@v1
+           uses: actions/setup-node@v3
            with:
-             node-version: 10
+             node-version: 16
 
          - name: Build/release Electron app
-           uses: samuelmeuli/action-electron-builder@v1
+           uses: samuelmeuli/action-electron-builder@master
            with:
              # GitHub token, automatically provided to the action
              # (No need to define this secret in the repo settings)
@@ -45,7 +45,7 @@ GitHub Actions allows you to build your app on macOS, Windows and Linux without 
 
              # If the commit is tagged with a version (e.g. "v1.0.0"),
              # release the app after building
-             release: ${{ startsWith(github.ref, 'refs/tags/v') }}
+             release: true
    ```
 
 ## Usage
@@ -59,9 +59,8 @@ Using this the workflow above, GitHub will build your app every time you push a 
 When you want to create a new release, follow these steps:
 
 1. Update the version in your project's `package.json` file (e.g. `1.2.3`)
-2. Commit that change (`git commit -am v1.2.3`)
-3. Tag your commit (`git tag v1.2.3`). Make sure your tag name's format is `v*.*.*`. Your workflow will use this tag to detect when to create a release
-4. Push your changes to GitHub (`git push && git push --tags`)
+2. Commit that change
+4. Push your changes to `main` branch.
 
 After building successfully, the action will publish your release artifacts. By default, a new release draft will be created on GitHub with download links for your app. If you want to change this behavior, have a look at the [`electron-builder` docs](https://www.electron.build).
 
