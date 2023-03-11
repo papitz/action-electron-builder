@@ -131,7 +131,7 @@ const runAction = () => {
 		try {
 			run(
 				`${useNpm ? "npx --no-install" : "yarn run"} ${cmd} --${platform} ${
-					release ? "--publish always" : ""
+					release ? "--publish onTagOrDraft" : ""
 				} ${args}`,
 				appRoot,
 			);
