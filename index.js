@@ -66,6 +66,7 @@ const getInput = (name, required) => {
 const runAction = () => {
 	const platform = getPlatform();
 	const release = getInput("release", true) === "true";
+	log("process.env=", process.env)
 	log("getInput=", getInput("release", true))
 	log("release=", release)
 	const pkgRoot = getInput("package_root", true);
