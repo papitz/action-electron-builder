@@ -66,15 +66,11 @@ const getInput = (name, required) => {
  */
 const runAction = () => {
 	const platform = getPlatform();
-	// const release = getInput("release", true) === "true";
-	const release = core.getInput("release", true) === "true";
-	core.info("process.env=", process.env)
-	core.info("getInput=", core.getInput("release", true))
-	core.info("release=", release)
+	const release = core.getInput("release", true);
 	const pkgRoot = core.getInput("package_root", true);
 	const buildScriptName = core.getInput("build_script_name", true);
-	const skipBuild = core.getInput("skip_build") === "true";
-	const useVueCli = core.getInput("use_vue_cli") === "true";
+	const skipBuild = core.getInput("skip_build");
+	const useVueCli = core.getInput("use_vue_cli");
 	const args = core.getInput("args") || "";
 	const maxAttempts = Number(core.getInput("max_attempts") || "1");
 
