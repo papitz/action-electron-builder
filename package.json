@@ -20,7 +20,6 @@
 	"dependencies": {
 		"@actions/core": "^1.10.0"
 	},
-	"peerDependencies": {},
 	"devDependencies": {
 		"@samuelmeuli/eslint-config": "^6.0.0",
 		"@samuelmeuli/prettier-config": "^2.0.1",
