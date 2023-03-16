@@ -1,7 +1,6 @@
 const { execSync } = require("child_process");
 const { existsSync, readFileSync } = require("fs");
 const { join } = require("path");
-const core = require('@actions/core');
 
 /**
  * Logs to the console
@@ -66,17 +65,17 @@ const getInput = (name, required) => {
  */
 const runAction = () => {
 	const platform = getPlatform();
-	const release = core.getInput("release", true);
-	const pkgRoot = core.getInput("package_root", true);
-	const buildScriptName = core.getInput("build_script_name", true);
-	const skipBuild = core.getInput("skip_build");
-	const useVueCli = core.getInput("use_vue_cli");
-	const args = core.getInput("args") || "";
-	const maxAttempts = Number(core.getInput("max_attempts") || "1");
+	const release = getInput("release", true);
+	const pkgRoot = getInput("package_root", true);
+	const buildScriptName = getInput("build_script_name", true);
+	const skipBuild = getInput("skip_build");
+	const useVueCli = getInput("use_vue_cli");
+	const args = getInput("args") || "";
+	const maxAttempts = Number(getInput("max_attempts") || "1");
 
 	// TODO: Deprecated option, remove in v2.0. `electron-builder` always requires a `package.json` in
 	// the same directory as the Electron app, so the `package_root` option should be used instead
-	const appRoot = core.getInput("app_root") || pkgRoot;
+	const appRoot = getInput("app_root") || pkgRoot;
 
 	const pkgJsonPath = join(pkgRoot, "package.json");
 	const pkgLockPath = join(pkgRoot, "package-lock.json");
