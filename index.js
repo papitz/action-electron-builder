@@ -68,8 +68,8 @@ const runAction = () => {
 	const release = getInput("release", true);
 	const pkgRoot = getInput("package_root", true);
 	const buildScriptName = getInput("build_script_name", true);
-	const skipBuild = getInput("skip_build");
-	const useVueCli = getInput("use_vue_cli");
+	const skipBuild = getInput("skip_build") === "true";
+	const useVueCli = getInput("use_vue_cli") === "false";
 	const args = getInput("args") || "";
 	const maxAttempts = Number(getInput("max_attempts") || "1");
 
