@@ -65,9 +65,8 @@ const getInput = (name, required) => {
  * Installs NPM dependencies and builds/releases the Electron app
  */
 const runAction = () => {
-	// const platform = getPlatform();
+	const platform = getPlatform();
 	// const release = getInput("release", true) === "true";
-	const platform = core.getPlatform();
 	const release = core.getInput("release", true) === "true";
 	core.info("process.env=", process.env)
 	core.info("getInput=", core.getInput("release", true))
