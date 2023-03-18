@@ -65,7 +65,7 @@ const getInput = (name, required) => {
  */
 const runAction = () => {
 	const platform = getPlatform();
-	const release = getInput("release", true);
+	const release = getInput("release", true) === "true";
 	const pkgRoot = getInput("package_root", true);
 	const buildScriptName = getInput("build_script_name", true);
 	const skipBuild = getInput("skip_build") === "true";
