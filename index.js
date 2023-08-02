@@ -126,7 +126,7 @@ const runAction = () => {
 	}
 
 	log(`Building${release ? " and releasing" : ""} the Electron app…`);
-	const cmd = useVueCli ? "vue-cli-service electron:build" : "quasar build -m electron";
+	const cmd = useVueCli ? "vue-cli-service electron:build" : "quasar build -m electron --debug";
 	for (let i = 0; i < maxAttempts; i += 1) {
 		try {
 			run(
