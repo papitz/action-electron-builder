@@ -131,10 +131,10 @@ const runAction = () => {
 	for (let i = 0; i < maxAttempts; i += 1) {
 		try {
 			run(
-				"yarn dist",
-				//`${useNpm ? "npx --no-install" : "yarn run"} ${cmd} --${platform} ${
-				//	release ? "--publish always" : ""
-				//} ${args}`,
+				//"yarn dist",
+				`${useNpm ? "npx --no-install" : "yarn run"} ${cmd} --${platform} ${
+					release ? "--publish always" : ""
+				} ${args}`,
 				appRoot,
 			);
 			break;
